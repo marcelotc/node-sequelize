@@ -1,9 +1,13 @@
 const express = require('express');
+
 const UserController = require('./controllers/UserController');
+const AddressesController = require('./controllers/AddressesController');
 
 const routes = express.Router();
 
-routes.post('/users', UserController.store);
 routes.get('/users', UserController.index);
+routes.post('/users', UserController.store);
+
+routes.post('/users/:user_id/addresses', AddressesController.store);
 
 module.exports = routes;
